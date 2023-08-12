@@ -3,6 +3,8 @@ import { inventoryData } from "../data/inventoryData";
 import { inventoryReducer } from "../reducers/inventoryReducer";
 import { useContext } from "react";
 import { useMemo } from "react";
+import { useEffect } from "react";
+import { INVENTORY } from "../utils/reducerTypes";
 
 const InventoryContext = createContext(null);
 
@@ -40,6 +42,21 @@ export default function InventoryProvider({ children }) {
 
     return filteredData;
   }, [stocksData]);
+
+  useEffect(() => {
+    const existingData = JSON.parse(localStorage.getItem("inventory"));
+    if (existingData) {
+      dispatch({
+        type: INVENTORY.SET_INVENTORY,
+        payload: existingData,
+      });
+    } else {
+      dispatch({
+        type: INVENTORY.SET_INVENTORY,
+        payload: stocksData.inventory,
+      });
+    }
+  }, []);
 
   return (
     <InventoryContext.Provider value={{ stocksData, dispatch, filteredStocks }}>
