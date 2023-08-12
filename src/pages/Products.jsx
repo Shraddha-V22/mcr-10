@@ -40,7 +40,7 @@ function ProductTableRow({ product }) {
 
   const { id, imageUrl, name, description, price, stock, supplier } = product;
   return (
-    <tr className="">
+    <tr className="capitalize">
       <td className="border border-gray-400 p-2">
         <img src={imageUrl} alt={name} className="h-auto w-40" />
       </td>

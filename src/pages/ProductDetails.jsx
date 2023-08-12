@@ -21,12 +21,12 @@ export default function ProductDetails() {
     } = product;
 
     return (
-      <section>
+      <section className="flex max-w-[400px] flex-col gap-4 p-4">
+        <h1 className="border border-gray-400 p-2 text-2xl font-semibold capitalize">
+          {name}
+        </h1>
         <img src={imageUrl} alt="" className="max-w-[300px]" />
         <div className="capitalize">
-          <h1 className="border border-gray-400 p-2">
-            <strong>name:</strong> {name}
-          </h1>
           <p className="border border-gray-400 p-2">
             <strong>description:</strong> {description}
           </p>

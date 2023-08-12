@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="grid h-[100vh] w-[100vw] grid-cols-[auto_1fr]">
+    <div className="grid h-[100vh] w-[95vw] grid-cols-[auto_1fr]">
       <Sidebar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
