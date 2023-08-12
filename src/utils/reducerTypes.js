@@ -1,0 +1,4 @@
+export const INVENTORY = {
+  FILTERS: "FILTERS",
+  ADD_PRODUCT: "ADD_PRODUCT",
+};
