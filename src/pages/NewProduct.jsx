@@ -32,10 +32,10 @@ export default function NewProduct() {
       toast.error("Please provide valid image url!");
       return;
     }
-    if (!objHasAllValues(productInputs)) {
-      toast.error("Please fill all the details!");
-      return;
-    }
+    // if (!objHasAllValues(productInputs)) {
+    //   toast.error("Please fill all the details!");
+    //   return;
+    // }
     dispatch({ type: INVENTORY.ADD_PRODUCT, payload: productInputs });
     navigate("/products");
     toast.success("Product added successfully!");
@@ -96,12 +96,16 @@ export default function NewProduct() {
           name="supplier"
           label="Supplier"
         />
-        <InputComponent
-          onChange={inputChangeHandler}
-          name="delivered"
-          label="Delivered"
-          type="number"
-        />
+        <div className="flex flex-col gap-1">
+          <label htmlFor="delivered">Delivered:</label>
+          <input
+            className="rounded-md border border-gray-400 px-2 py-1 indent-1 text-sm outline-none"
+            name="delivered"
+            type="number"
+            id="delivered"
+            value={0}
+          />
+        </div>
         <InputComponent
           onChange={inputChangeHandler}
           name="imageUrl"
